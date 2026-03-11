@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+::selection {
+  background: rgba(100, 255, 218, 0.2);
+  color: #ffffff;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Section transitions */
+.section-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 500ms,
+    transform 500ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64ffda;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4dffcc;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-cyan-400;
+}
+
+/* Glass effect */
+.glass {
+  @apply border border-secondary/10 bg-white/5 backdrop-blur-sm;
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-opacity duration-300 hover:opacity-80;
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-primary;
+}
+
+@layer components {
+  .section-wrapper {
+    @apply relative scroll-mt-24 py-20 md:py-32 px-6;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-widest text-tertiary;
+  }
+
+  .section-heading {
+    @apply text-5xl md:text-5xl font-bold tracking-tight text-secondary leading-tight;
+  }
+
+  .section-subheading {
+    @apply mt-6 max-w-3xl text-xl text-tertiary md:text-2xl leading-relaxed;
+  }
+
+  .content-card {
+    @apply rounded-3xl border border-slate-700 bg-slate-800 p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-secondary/40;
+  }
+
+  .badge-soft {
+    @apply rounded-full border border-secondary/30 bg-secondary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-secondary;
+  }
+}
